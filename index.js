@@ -1,4 +1,6 @@
 const express = require('express')
+const ds18b20 = require('ds18b20');
+
 const app = express()
 const port = 3000
 
@@ -7,7 +9,9 @@ app.get('/', (req, res) => {
 })
 
 app.get("/temp", (req, res) => {
-  res.json({ "ok": true, temp: 20.0 })
+  const id = req.params.id || "28-0215011c09ff"
+
+  res.json({ "ok": true, temp: ds18b20.temperatureSync(id) })
 })
 
 app.listen(port, () => {
