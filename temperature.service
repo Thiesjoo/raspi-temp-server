@@ -4,7 +4,7 @@ After=network.target
 
 [Service]
 WorkingDirectory=/home/pi/dev/raspi-temp/server
-ExecStart=/usr/bin/npm start
+ExecStart=/home/pi/.nvm/versions/node/v16.15.1/bin/npm start
 Restart=on-failure
 User=pi
 Environment=PORT=3000
