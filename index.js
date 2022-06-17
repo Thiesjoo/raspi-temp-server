@@ -1,5 +1,6 @@
 const express = require('express')
 const ds18b20 = require('ds18b20');
+const cors = require("cors")
 
 const execSync = require('child_process').execSync;
 const tempMatchRegex = /[0-9]*\.[0-9]*/
@@ -10,6 +11,7 @@ function getCPUTemp() {
 }
 
 const app = express()
+app.use(cors())
 const port = 3000
 
 app.get('/', (req, res) => {
