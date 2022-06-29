@@ -14,11 +14,8 @@ const app = express()
 app.use(cors())
 const port = 3000
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
 
-app.get("/temp", (req, res) => {
+app.get("/", (req, res) => {
   const id = req.params.id || "28-0215011c09ff"
 
   res.json({ "ok": true, room: ds18b20.temperatureSync(id), pi: getCPUTemp() })
