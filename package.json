@@ -3,10 +3,9 @@
 	"version": "1.0.0",
 	"description": "",
 	"main": "index.js",
-	"type": "module",
 	"scripts": {
 		"build": "rimraf dist && tsc",
-		"start:dev": "tsc --watch --preserveWatchOutput --pretty",
+		"start:dev": "tsc-watch --onSuccess \"node dist/index.js\"",
 		"start": "node dist/index.js"
 	},
 	"repository": {
@@ -20,9 +19,11 @@
 	},
 	"homepage": "https://github.com/Thiesjoo/raspi-temp-server#readme",
 	"dependencies": {
+		"@fastify/cors": "^8.0.0",
 		"detect-rpi": "^1.4.0",
 		"ds18b20": "^0.1.0",
-		"fastify": "^4.3.0"
+		"fastify": "^4.3.0",
+		"tsc-watch": "^5.0.3"
 	},
 	"devDependencies": {
 		"@types/ds18b20": "^0.1.0",
