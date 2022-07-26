@@ -5,7 +5,9 @@
 	"main": "index.js",
 	"type": "module",
 	"scripts": {
-		"start": "nodemon src/index.js"
+		"build": "rimraf dist && tsc",
+		"start:dev": "tsc --watch --preserveWatchOutput --pretty",
+		"start": "node dist/index.js"
 	},
 	"repository": {
 		"type": "git",
@@ -18,12 +20,16 @@
 	},
 	"homepage": "https://github.com/Thiesjoo/raspi-temp-server#readme",
 	"dependencies": {
-		"cors": "^2.8.5",
 		"detect-rpi": "^1.4.0",
 		"ds18b20": "^0.1.0",
-		"express": "^4.18.1"
+		"fastify": "^4.3.0"
 	},
 	"devDependencies": {
-		"nodemon": "^2.0.19"
+		"@types/ds18b20": "^0.1.0",
+		"@types/node": "^18.6.1",
+		"fastify-tsconfig": "^1.0.1",
+		"nodemon": "^2.0.19",
+		"rimraf": "^3.0.2",
+		"typescript": "^4.7.4"
 	}
 }
