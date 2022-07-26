@@ -1,0 +1,23 @@
+version: "3.9"
+
+services:
+  web:
+    container_name: web
+    build:
+      context: ./api
+      target: web
+    ports:
+      - "5000:5000"
+    depends_on:
+      - redis
+    environment:
+      - BROKER_URL=redis://redis:6380/0
+
+  # Share cpu temp: https://stackoverflow.com/questions/72563504/get-raspis-cpu-temperature-within-docker-container
+  # Share GPIO: https://stackoverflow.com/questions/30059784/docker-access-to-raspberry-pi-gpio-pins
+
+  redis:
+    container_name: redis
+    image: redislabs/redistimeseries
+    ports:
+      - "6380:6380"

@@ -5,7 +5,7 @@
 	"main": "index.js",
 	"scripts": {
 		"build": "rimraf dist && tsc",
-		"start:dev": "tsc-watch --onSuccess \"node dist/index.js\"",
+		"start:dev": "tsc-watch --onSuccess \"BROKER_URL=redis://redis:6380/0 node dist/index.js\"",
 		"start": "node dist/index.js"
 	},
 	"repository": {
