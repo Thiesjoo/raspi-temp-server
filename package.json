@@ -5,7 +5,7 @@
 	"main": "index.js",
 	"scripts": {
 		"build": "rimraf dist && tsc",
-		"start:dev": "tsc-watch --onSuccess \"BROKER_URL=redis://redis:6380/0 node dist/index.js\"",
+		"start:dev": "BROKER_URL=redis://localhost:6380/0  tsc-watch --onSuccess \"node dist/index.js\"",
 		"start": "node dist/index.js"
 	},
 	"repository": {
@@ -23,6 +23,7 @@
 		"detect-rpi": "^1.4.0",
 		"ds18b20": "^0.1.0",
 		"fastify": "^4.3.0",
+		"redis-modules-sdk": "^1.2.8",
 		"tsc-watch": "^5.0.3"
 	},
 	"devDependencies": {
