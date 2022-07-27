@@ -10,7 +10,9 @@ services:
     depends_on:
       - redistimeseries
     environment:
-      - BROKER_URL=redis://redistimeseries:6380/0
+      - NODE_ENV=production
+      - BROKER_HOST=redistimeseries
+      - BROKER_PORT=6380
 
   # Share cpu temp: https://stackoverflow.com/questions/72563504/get-raspis-cpu-temperature-within-docker-container
   # Share GPIO: https://stackoverflow.com/questions/30059784/docker-access-to-raspberry-pi-gpio-pins
